@@ -1,0 +1,46 @@
+import React from 'react';
+import { Routes, Route, NavLink } from 'react-router-dom';
+import styled from "styled-components";
+import ProductList from './ProductList';
+import Login from './Login';
+import Join from './Join';
+import Cart from './Cart';
+
+//메뉴
+function Router() {
+    //HOME 스타일
+    const Shoptitle = styled.div `
+    color : black;
+    font-size : 50px;
+    text-align : center;
+    padding : 100px 0;
+    textDecoration : none;
+
+    &:hover, &:active {
+        opacity : 0.5;
+    }
+`;
+
+    return (
+        <div>
+            <nav>
+                <NavLink style={{textDecoration : 'none'}} className={({isActive }) => "nav-link" + (isActive ? "click" : "")} to="/"><Shoptitle>HOME</Shoptitle></NavLink>
+            </nav>
+            <nav>
+                <NavLink className={({isActive }) => "nav-link" + (isActive ? "click" : "")} to="/ProductList">상품 목록</NavLink>
+                <NavLink className={({isActive }) => "nav-link" + (isActive ? "click" : "")} to="/Login">로그인</NavLink>
+                <NavLink className={({isActive }) => "nav-link" + (isActive ? "click" : "")} to="/Join">회원 가입</NavLink>
+                <NavLink className={({isActive }) => "nav-link" + (isActive ? "click" : "")} to="/Cart">장바구니</NavLink>
+            </nav>
+
+            <Routes>
+                <Route exact={true} path="/ProductList" element={<ProductList />} />
+                <Route path="/Login" element={<Login />} />
+                <Route path="/Join" element={<Join />} />
+                <Route path="/Cart" element={<Cart />} />
+            </Routes>
+        </div>
+    )
+}
+
+export default Router;
