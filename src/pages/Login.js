@@ -21,10 +21,11 @@ function Login() {
         axios.post("http://localhost:3001/api/login", 
             {cusID : cusID,
              cusPW : cusPW, })
-        .then(
-            alert("🎉로그인 성공🎉")
-        )
-
+        .then(response => {
+            alert(response.data)
+        }).catch (error => {
+            console.log(error)
+        })
     };
 
     return(

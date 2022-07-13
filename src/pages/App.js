@@ -7,6 +7,9 @@ function App() {
       <header>
         <Router />
       </header>
+      <footer>
+        made by minjiLee
+      </footer>
 
     </>
   );

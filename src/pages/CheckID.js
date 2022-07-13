@@ -1,8 +1,8 @@
 import React from "react";
 
-function CheckID() {
+function CheckID({id}) {
     const idcheck= () => {
-        
+        //내일.... 즉.. 7월 14일날 할것이다. 
     }
 
     return(

@@ -38,7 +38,7 @@ function Join() {
         <div>
             <hr/>
             <p>ID</p>
-            <input type="text" name="cusID" placeholder="아이디 입력란" onChange={onChange} value={cusID}/><CheckID/>
+            <input type="text" name="cusID" placeholder="아이디 입력란" onChange={onChange} value={cusID}/><CheckID id={cusID}/>
             <p>PW</p>
             <input type="text" name="cusPassword" placeholder="패스워드 입력란" onChange={onChange} value={cusPassword}/>
             <p>Name</p>
