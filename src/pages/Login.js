@@ -18,7 +18,11 @@ function Login() {
     };
 
     const cusLogin = () => {
-        axios.post("http://localhost:3001/api/login", 
+        if(cusID == "" || cusPW == "") {
+            alert("아이디 비밀번호를 입력하세요.");
+        }
+        else {
+            axios.post("http://localhost:3001/api/login", 
             {cusID : cusID,
              cusPW : cusPW, })
         .then(response => {
@@ -26,6 +30,7 @@ function Login() {
         }).catch (error => {
             console.log(error)
         })
+        }
     };
 
     return(

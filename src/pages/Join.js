@@ -3,7 +3,6 @@ import axios from "axios";
 import CheckID from "./CheckID";
 
 function Join() {
-    //const [checknull, setChecknull] = useState(true)
     const [inputs, setInputs] = useState({
         cusID : '',
         cusPassword : '',
@@ -23,22 +22,27 @@ function Join() {
     };
 
     const joinCus = () => {
-        axios.post("http://localhost:3001/api/join", 
+        if (cusID == "" || cusPassword == "" || cusName == "" || cusEmail == "") {
+            alert("아이디, 비밀번호, 이름, 이메일을 입력해주세요.");
+        }
+        else {
+            axios.post("http://localhost:3001/api/join", 
             {cusID : cusID,
              cusPassword : cusPassword,
              cusName: cusName,
              cusEmail : cusEmail,})
         .then(
             alert("🎉회원 가입 성공🎉"),
-            window.open('http://localhost:3000/')
+            window.open("http://localhost:3000/", "_self")
         )
+        }
     };
 
     return(
         <div>
             <hr/>
             <p>ID</p>
-            <input type="text" name="cusID" placeholder="아이디 입력란" onChange={onChange} value={cusID}/><CheckID id={cusID}/>
+            <input type="text" name="cusID" placeholder="아이디 입력란" onChange={onChange} value={cusID}/><CheckID id={cusID} />
             <p>PW</p>
             <input type="text" name="cusPassword" placeholder="패스워드 입력란" onChange={onChange} value={cusPassword}/>
             <p>Name</p>

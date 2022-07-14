@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import { Link } from 'react-router-dom';
 import axios from "axios";
 
 function ProductList(){
@@ -11,17 +12,26 @@ function ProductList(){
         })
     }, [])
 
+    
+
     return(
         <div>
             <hr/>
-            {searchList.map((val) => {
-                return(
-                    <h2 key={val.productID}>
-                        {val.productName}, 가격 : {val.productPrice}, {val.productContent},<img src={val.productIMG} width="200px"/>
-                    </h2>
-                );
-            })}
+            <nav>
+                {searchList.map((val) => {
+                    return(
+                    <Link key={val.productID} to={`/ProductDetail/${val.productID}`}>
+                        <h2 className="prList" key={val.productID}>
+                            <img src={val.productIMG} width="200px" alt="이미지"/>
+                            {val.productName}, {val.productPrice}원
+                        </h2>
+                    </Link>
+                    );
+                })}
+            </nav>
         </div>
+
+
     )
 }
 

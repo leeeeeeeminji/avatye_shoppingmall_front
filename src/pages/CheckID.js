@@ -1,8 +1,16 @@
 import React from "react";
+import axios from "axios";
 
 function CheckID({id}) {
-    const idcheck= () => {
-        //내일.... 즉.. 7월 14일날 할것이다. 
+    const checkid = id;
+
+    const idcheck = () => {
+        axios.post("http://localhost:3001/api/idcheck", { checkid : checkid,})
+        .then(response => {
+            alert(response.data)
+        }).catch (error => {
+            console.log(error)
+        })
     }
 
     return(

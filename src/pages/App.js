@@ -3,15 +3,14 @@ import Router from "./Router";
 
 function App() {
   return (
-    <>
+    <div className="wrap">
       <header>
         <Router />
       </header>
       <footer>
-        made by minjiLee
+        <p>made by LEE</p>
       </footer>
-
-    </>
+    </div>
   );
 }
 
