@@ -17,12 +17,9 @@ function Login() {
         })
     };
 
-    const cusLogin = () => {
-        if(cusID == "" || cusPW == "") {
-            alert("아이디 비밀번호를 입력하세요.");
-        }
-        else {
-            axios.post("http://localhost:3001/api/login", 
+    const cusLogin = (e) => {
+        e.preventDefault();
+        axios.post("http://localhost:3001/api/login", 
             {cusID : cusID,
              cusPW : cusPW, })
         .then(response => {
@@ -30,18 +27,17 @@ function Login() {
         }).catch (error => {
             console.log(error)
         })
-        }
     };
 
     return(
-        <div>
+        <form onSubmit={cusLogin}> 
             <hr/>
             <p>ID</p>
-            <input type="text" name="cusID" placeholder="아이디 입력" onChange={onChange} value={cusID}/>
+            <input type="text" name="cusID" placeholder="아이디 입력" onChange={onChange} value={cusID} autoFocus required/>
             <p>PW</p>
-            <input type="password" name="cusPW" placeholder="비밀번호 입력" onChange={onChange} value={cusPW}/>
-            <button onClick={cusLogin}>로그인</button>
-        </div>
+            <input type="password" name="cusPW" placeholder="비밀번호 입력" onChange={onChange} value={cusPW} required/>
+            <button>로그인</button>
+        </form>
     )
 }
 

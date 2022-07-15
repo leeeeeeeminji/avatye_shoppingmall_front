@@ -7,6 +7,7 @@ function App() {
       <header>
         <Router />
       </header>
+      {/* <img className="greeting" src="/imgs/greeting.gif" alt="안녕하세요"/> */}
       <footer>
         <p>made by LEE</p>
       </footer>

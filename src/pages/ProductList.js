@@ -12,8 +12,6 @@ function ProductList(){
         })
     }, [])
 
-    
-
     return(
         <div>
             <hr/>
@@ -30,8 +28,6 @@ function ProductList(){
                 })}
             </nav>
         </div>
-
-
     )
 }
 

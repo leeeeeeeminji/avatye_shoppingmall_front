@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import styled from "styled-components";
 import ProductList from './ProductList';
 import Login from './Login';
@@ -8,6 +8,8 @@ import Cart from './Cart';
 import SearchProduct from './SearchProduct';
 import ProductDetail from './ProductDetail';
 import Order from './Order';
+import SearchResult from './SearchResult';
+import "./Router.css"
 
 //메뉴
 function Router() {
@@ -26,20 +28,22 @@ function Router() {
     }
 `;  
 
+ 
+
 
     return (
         <div>
-            <nav>
-                <NavLink style={{textDecoration : 'none'}} className={({isActive }) => "nav-link" + (isActive ? "click" : "")} to="/"><Shoptitle>SHOP</Shoptitle></NavLink>
-            </nav>
-            <nav>
-                <NavLink className={({isActive }) => "nav-link" + (isActive ? "click" : "")} to="/ProductList">상품 목록</NavLink>
-                <NavLink className={({isActive }) => "nav-link" + (isActive ? "click" : "")} to="/Login">로그인</NavLink>
-                <NavLink className={({isActive }) => "nav-link" + (isActive ? "click" : "")} to="/Join">회원 가입</NavLink>
-                <NavLink className={({isActive }) => "nav-link" + (isActive ? "click" : "")} to="/Cart">장바구니</NavLink>
+            <div className='head'>
+                <Link style={{textDecoration : 'none'}} to="/"><Shoptitle>SHOP</Shoptitle></Link>
+            </div>
+            <div className='menu'>
+                <Link to="/ProductList">상품 목록</Link>
+                <Link to="/Login">로그인</Link>
+                <Link to="/Join">회원 가입</Link>
+                <Link to="/Cart">장바구니</Link>
                
                 <SearchProduct />
-            </nav>
+            </div>
 
             <Routes>
                 <Route path="/ProductList/" element={<ProductList />} />
@@ -47,7 +51,8 @@ function Router() {
                 <Route path="/Join" element={<Join />} />
                 <Route path="/Cart" element={<Cart />} />
                 <Route exact="true" path="/ProductDetail/:id" element={<ProductDetail />} />
-                <Route path="/Order" element={<Order />} />
+                <Route exact="true" path="/Order/:id" element={<Order />} />
+                <Route exact="true" path="/SearchResult/:item" element={<SearchResult />} />
             </Routes>
         </div>
     )

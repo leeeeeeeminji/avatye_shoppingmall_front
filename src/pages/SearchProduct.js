@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import axios from "axios";
+import { useNavigate } from "react-router";
 
 function SearchProduct(){
     const [searchItem, setSearchItem] = useState();
@@ -9,17 +9,21 @@ function SearchProduct(){
         setSearchItem(e.target.value);
     };
 
-    const seachItem = () => {
-        axios.post("http://localhost:3001/api/search", {searchItem : searchItem, })
-        .then((response) => {
-            setSearchList(response.data)
-        })
+    const navigate = useNavigate();
+
+    const seachItem = (e) => {
+        e.preventDefault();
+        if(searchItem !== undefined){
+            navigate(`/SearchResult/${searchItem}`);
+        } else {
+            alert("입력하세요");
+        }
     };
 
     return(
-        <>
-            <input className={searchItem} type="text" name="searchItem" placeholder="상품명을 입력하세요 " onChange={onChange}/>
-            <button onClick={seachItem} style={{backgroundColor : 'white', borderStyle : 'none'}}>🔍</button>
+        <form onSubmit={seachItem}>
+            <input className={searchItem} type="text" minLength="1" value={searchItem} placeholder="상품명을 입력하세요 " onChange={onChange}/>
+            <button style={{backgroundColor : 'white', borderStyle : 'none'}}>🔍</button>
             {searchList.map((val) => {
                 return(
                     <div key={val.productID}>
@@ -27,7 +31,7 @@ function SearchProduct(){
                     </div>
                 );
             })}
-        </>
+        </form>
     )
 }
 
