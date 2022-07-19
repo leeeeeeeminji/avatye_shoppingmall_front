@@ -23,7 +23,7 @@ function Login() {
             {cusID : cusID,
              cusPW : cusPW, })
         .then(response => {
-            alert(response.data)
+            localStorage.setItem("user", JSON.stringify(response.data))
         }).catch (error => {
             console.log(error)
         })

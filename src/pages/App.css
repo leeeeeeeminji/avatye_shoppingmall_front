@@ -1,0 +1,100 @@
+/*Main*/
+html {
+    position : relative;
+    min-height : 100%;
+    margin : 0;
+}
+
+footer {
+    width: 100%;
+    text-align : center;
+    padding : 20px;
+    background-color : #e9f7e4;
+    position : absolute;
+    bottom : 0px;
+}  
+
+.slider {
+    width : 50%;
+    margin : 50px auto;
+}
+
+.slider img {
+    margin : 0 auto;
+}
+
+.maintext {
+    color : gray;
+    text-align : center;
+}
+
+/*productList*/
+.prList {
+    display: inline-block;
+}
+
+/*productDetail*/
+.productIMG {
+    width : 500px;
+    height : 100%;
+    display : inline-block;
+}
+
+.product {
+    position : absolute;
+    display : inline-block;
+}
+
+.productContent {
+    margin : 50px 0;
+    font-size : 30px;
+}
+
+.buybtn {
+    position : relative;
+    bottom : 150px;
+    width : 200px;
+}
+
+/*Order*/
+.ordertable {
+    width : 1000px;
+    text-align : center;
+    margin : 50px auto;
+    border-collapse: collapse;
+    border: 2px solid rgb(239, 239, 239);
+}
+
+.ordertable tr th {
+    background-color : rgb(239, 239, 239);
+}
+
+.orderdetail {
+    margin : 30px auto;
+    padding : 20px;
+    width : 1000px;
+    border : 2px solid rgb(239, 239, 239);
+}
+
+.paymentbtn {
+    margin : 0 210px;
+    width : 200px;
+    height : 50px;
+    font-size : 20px;
+}
+
+/*Join*/
+.pattern {
+    font-size : 8px;
+}
+
+/*SearchProduct*/
+.searchItem {
+    border : none;
+    width : 150px;
+}
+
+/*SearchResult*/
+.searchresult {
+    text-align: center;
+}

@@ -5,7 +5,7 @@ function CheckID({id}) {
     const checkid = id;
 
     const idcheck = () => {
-        axios.post("http://localhost:3001/api/idcheck", { checkid : checkid,})
+        axios.get("http://localhost:3001/api/idcheck", {params : { checkid : checkid,}})
         .then(response => {
             alert(response.data)
         }).catch (error => {
