@@ -24,7 +24,7 @@ function Main() {
     <Slider {...settings} className="slider">
         {imgs.map((val) => {
             return(
-                <div>
+                <div key={val}>
                     <img src={val} width="300px"/>
                 </div>
             )

@@ -20,12 +20,20 @@ footer {
 }
 
 .slider img {
-    margin : 0 auto;
+    margin : 50px auto;
 }
 
 .maintext {
+    margin : 50px;
+    font-size : 25px;
     color : gray;
     text-align : center;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: #90b79e;
+    font-size: 30px;
 }
 
 /*productList*/

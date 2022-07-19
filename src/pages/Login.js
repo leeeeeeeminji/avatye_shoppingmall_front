@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import axios from "axios";
 
 function Login() {
@@ -17,13 +18,24 @@ function Login() {
         })
     };
 
+    //const navigate = useNavigate();
+
     const cusLogin = (e) => {
         e.preventDefault();
         axios.post("http://localhost:3001/api/login", 
             {cusID : cusID,
              cusPW : cusPW, })
         .then(response => {
-            localStorage.setItem("user", JSON.stringify(response.data))
+            if (response.data == 'wrongPW') {
+                alert("비밀번호가 올바르지 않습니다.");
+            } else if (response.data == 'noID') {
+                alert("아이디가 존재하지 않습니다.");
+            } else {
+                localStorage.setItem("user", JSON.stringify(response.data));
+                alert("로그인 성공!");
+                //navigate("/Main");
+                window.open("/Main", "_self");
+            }
         }).catch (error => {
             console.log(error)
         })

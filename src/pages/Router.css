@@ -1,6 +1,22 @@
+.head {
+    text-decoration: none;
+    width: 100%;
+    font-size: 50px;
+    padding :15px 0;
+    text-align : center;
+    background-color : #e9f7e4;
+}
+.head a{
+    color : black;
+}
+
+.head a:hover {
+    opacity : 0.6;
+}
+
 .menu{
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     align-content: center;
     justify-content: center;
 }
@@ -11,6 +27,7 @@
     margin : 0 20px;
     transition: .5s;
 }
+
 .menu a:hover {
     color : #797979d0;
 }
