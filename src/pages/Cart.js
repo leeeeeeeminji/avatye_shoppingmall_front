@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import axios from "axios";
 import "./App.css";
 
@@ -14,33 +14,35 @@ function Cart() {
          .then((response) => {
          setCartList(response.data)
          })
-    }, []);
+    }, [currentUser]);
 
     //회원일 경우 장바구니 기능 사용 가능
         return (
             <>
                 <hr/>
-                <div className="usercart">{currentUser}님의 장바구니 입니다.</div>
+                {console.log(cartlist)}
+                <div className="info">{currentUser}님의 장바구니 입니다.</div>
                 <table className="ordertable">
                     <thead>
                         <tr>
-                            <th><input type="checkbox" /></th><th>IMGAE</th><th>INFO</th><th>PRICE</th>
+                            <th>IMGAE</th><th>INFO</th><th>PRICE</th><th>QTY</th><th>SUM</th>
                         </tr>
                     </thead>
                         {cartlist.map((val) => {
                             return(
                                 <tbody key={val.productID}>
                                     <tr> 
-                                        <td><input type="checkbox"/></td>
                                         <td><img width="100px" src={val.productIMG} alt="이미지" /></td>
                                         <td>{val.productName}</td>
                                         <td>{val.productPrice} 원</td>
+                                        <td>{val.quantity} 개</td>
+                                        <td>{val.finalprice} 원</td>
                                     </tr>
                                 </tbody>
                             );
                         })}
                 </table>
-                <button className="buybtn" onClick={()=> {navigate("/Order", {state : { details : cartlist}})}}>주문</button>
+                <button className="buybtn2" onClick={()=> {navigate("/Order")}}>주문</button>
             </>
         )
 }

@@ -7,9 +7,9 @@ function App() {
       <header>
         <Router/>
       </header>
-      <footer>
+      {/* <footer>
         made by LEE
-      </footer>
+      </footer> */}
     </div>
   );
 }
