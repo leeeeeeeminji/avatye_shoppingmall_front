@@ -33,7 +33,6 @@ function Login() {
             } else {
                 localStorage.setItem("user", JSON.stringify(response.data));
                 alert("로그인 성공!");
-                //navigate("/Main");
                 window.open("/Main", "_self");
             }
         }).catch (error => {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
+import { Navigate, useNavigate } from "react-router";
 import Main from './Main';
 import ProductList from './ProductList';
 import Login from './Login';
@@ -36,7 +37,7 @@ function Router() {
                 <Route path="/Logout" element={<Logout />} />
                 <Route path="/Mypage" element={<Mypage />} />
                 <Route path="/Join" element={<Join />} />
-                <Route path="/Cart" element={<Cart />} />
+                <Route path="/Cart" element={localStorage.getItem("user") ? <Cart/> : <Navigate to="/Login" />} />
                 <Route path="/ProductDetail/:id" element={<ProductDetail />} />
                 <Route exact="true" path="/Order" element={<Order />} />
                 <Route exact="true" path="/SearchResult/:item" element={<SearchResult />} />
