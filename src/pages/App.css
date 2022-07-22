@@ -129,3 +129,29 @@ caption {
     justify-content: center;
     margin-bottom : 50px;
 }
+
+/*mypage*/
+.mypagediv {
+    display: flex;
+    justify-content: center;
+    margin : 50px;
+}
+
+.mypagediv img {
+    width : 200px;
+    height : 200px;
+    margin-right : 100px;
+}
+
+.mypagetable {
+    width : 300px;
+    height: 150px;
+    border : 3px solid #8db39b;
+    border-radius: 20px;
+    padding : 20px;
+
+}
+
+.mypagetable caption {
+    font-size: 17px;
+}

@@ -20,7 +20,6 @@ function Join() {
             ...inputs,
             [name] : value
         })
-        
     };
 
     const navigate = useNavigate();

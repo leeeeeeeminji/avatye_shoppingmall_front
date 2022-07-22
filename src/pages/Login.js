@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router";
 import axios from "axios";
 
 function Login() {
@@ -17,8 +16,6 @@ function Login() {
             [name] : value
         })
     };
-
-    //const navigate = useNavigate();
 
     const cusLogin = (e) => {
         e.preventDefault();

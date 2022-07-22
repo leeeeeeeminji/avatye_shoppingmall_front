@@ -32,7 +32,7 @@ function ProductDetail() {
     //주문하기 눌렀을 때
     const goOrder = () => {
         if (currentUser) {
-            navigate("/order", {state : {details : details, quantity : quantity, finalPrice : finalPrice }});
+            navigate("/Order", {state : {details : details, quantity : quantity, finalPrice : finalPrice }});
         } else {
             if (window.confirm("로그인이 필요한 서비스 입니다. 로그인 하시겠습니까?")) {
                 navigate('/Login');
