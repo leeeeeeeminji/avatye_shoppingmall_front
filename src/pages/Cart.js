@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
+import NumFormat from "./NumFormat";
 import "./App.css";
 
 function Cart() {
@@ -23,7 +24,7 @@ function Cart() {
             <table className="ordertable">
                 <thead>
                     <tr>
-                        <th>IMGAE</th><th>INFO</th><th>PRICE</th><th>QTY</th><th>SUM</th>
+                        <th>IMAGE</th><th>INFO</th><th>PRICE</th><th>QTY</th><th>SUM</th>
                     </tr>
                 </thead>
                     {cartlist.map((val) => {
@@ -32,15 +33,18 @@ function Cart() {
                                 <tr> 
                                     <td><img width="100px" src={val.productIMG} alt="이미지" /></td>
                                     <td>{val.productName}</td>
-                                    <td>{val.productPrice} 원</td>
+                                    <td><NumFormat num={val.productPrice} />원</td>
                                     <td>{val.quantity} 개</td>
-                                    <td>{val.finalprice} 원</td>
+                                    <td><NumFormat num={val.finalprice} />원</td>
                                 </tr>
                             </tbody>
                         );
                     })}
             </table>
-            <button className="buybtn2" onClick={()=> {navigate("/Order", {state : {details : cartlist}})}}>주문</button>
+
+            <div className="mypagediv">
+                <button className="buybtn2" onClick={()=> {navigate("/Order", {state : {details : cartlist}})}}>주문</button>
+            </div>
         </>
     )
 }

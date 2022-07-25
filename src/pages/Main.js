@@ -20,7 +20,7 @@ function Main() {
 
   return (
     <>
-    <h3 className="maintext"> ⭐️ shop 대표 상품 ⭐️ </h3>
+    <h3 className="maintext"> ⭐️ SHOP 대표 상품 ⭐️ </h3>
     <Slider {...settings} className="slider">
         {imgs.map((val) => {
             return(

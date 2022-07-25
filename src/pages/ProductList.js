@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import { Link } from 'react-router-dom';
 import axios from "axios";
+import NumFormat from "./NumFormat";
+import Grid from '@mui/material/Grid';
 import "./App.css";
 
 function ProductList(){
@@ -19,12 +21,12 @@ function ProductList(){
             <nav>
                 {searchList.map((val) => {
                     return(
-                    <Link key={val.productID} to={`/ProductDetail/${val.productID}`}>
-                        <h2 className="prList" key={val.productID}>
-                            <img src={val.productIMG} width="200px" alt="이미지"/>
-                            {val.productName}, {val.productPrice}원
-                        </h2>
-                    </Link>
+                        <Link key={val.productID} className="linklist" to={`/ProductDetail/${val.productID}`}>
+                            <h2 className="prList" key={val.productID}>
+                                <img src={val.productIMG} width="200px" alt="이미지"/>
+                                {val.productName} <span style={{fontSize : "15px"}}><NumFormat num={val.productPrice} />원</span>
+                            </h2>
+                        </Link>
                     );
                 })}
             </nav>

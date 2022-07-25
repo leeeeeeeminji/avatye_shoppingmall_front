@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TextField from '@mui/material/TextField';
 import axios from "axios";
 
 function Login() {
@@ -40,10 +41,8 @@ function Login() {
     return(
         <form onSubmit={cusLogin}> 
             <hr/>
-            <p>ID</p>
-            <input type="text" name="cusID" placeholder="아이디 입력" onChange={onChange} value={cusID} autoFocus required/>
-            <p>PW</p>
-            <input type="password" name="cusPW" placeholder="비밀번호 입력" onChange={onChange} value={cusPW} required/>
+            <TextField id="standard-basic" name="cusID" label="ID" variant="standard" onChange={onChange} value={cusID} autoFocus required/><br/>
+            <TextField id="standard-basic" type="password" name="cusPW" label="PW" variant="standard" onChange={onChange} value={cusPW} autoFocus required/><br/>
             <button>로그인</button>
         </form>
     )

@@ -26,7 +26,6 @@ function Router() {
                 {localStorage.getItem("user") ? <Link to="/Logout">로그아웃</Link> : <Link to="/Login">로그인</Link>}
                 {localStorage.getItem("user") ? <Link to="/Mypage">마이페이지</Link> : <Link to="/Join">회원가입</Link>}
                 <Link to="/Cart">장바구니</Link>
-               
                 <SearchProduct />
             </div>
 

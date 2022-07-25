@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router";
 import axios from "axios";
+import NumFormat from "./NumFormat";
 import './App.css';
 
 function ProductDetail() {
@@ -91,11 +92,11 @@ function ProductDetail() {
                     <img className="productIMG" src={details[0].productIMG} alt="이미지" />
                     <div className="product">
                         <h2>{details[0].productName}</h2>
-                        {details[0].productPrice}원
+                        <NumFormat num={details[0].productPrice} />원
                         <div className="productContent">" {details[0].productContent} "</div> 
                         <div>수량 : {quantity} <button value="+" onClick={checkQuantity}>+</button><button value="-" onClick={checkQuantity}>-</button></div>
                         <br/>
-                        <div>최종 금액 : {finalPrice}원</div>
+                        <div>최종 금액 : <NumFormat num={finalPrice} />원</div>
                     </div>
                     <button className="buybtn" onClick={goOrder}>주문</button>
                     <button className="cartbtn" onClick={insertCart}>🛒</button>
