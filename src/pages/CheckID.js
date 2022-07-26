@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import "./App.css";
 
 function CheckID({id}) {
     const checkid = id;
@@ -14,7 +15,9 @@ function CheckID({id}) {
     }
 
     return(
-        <button onClick={idcheck}>아이디 중복확인</button>
+        <button className="idcheckbutton" onClick={idcheck} type="submit" variant="contained" size="large">
+            ✓
+        </button>
     )
 }
 

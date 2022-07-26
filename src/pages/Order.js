@@ -54,7 +54,6 @@ function Order() {
 
     return(
         <>
-            <hr/>
             <table className="ordertable">
                 <caption>상품 정보</caption>
                 <thead>
@@ -83,8 +82,8 @@ function Order() {
                     <caption>주문자 정보</caption>
                     <tbody>
                         <tr><td>ID</td><td>{JSON.parse(localStorage.getItem("user")).userid}</td></tr>
-                        <tr><td>주소</td><td><input type="text" name="address" value={address} onChange={onChange} placeholder="주소" required /></td></tr>
-                        <tr><td>휴대폰 번호</td><td><input type="text" name="phone" value={phone} onChange={onChange} placeholder="010-0000-0000" required /></td></tr>
+                        <tr><td>주소</td><td><input className="mypageInputs" type="text" name="address" value={address} onChange={onChange} placeholder="주소" required /></td></tr>
+                        <tr><td>휴대폰 번호</td><td><input className="mypageInputs" type="text" name="phone" value={phone} onChange={onChange} placeholder="010-0000-0000" required /></td></tr>
                     </tbody>
                 </table>
 
@@ -93,7 +92,7 @@ function Order() {
                     <tbody>
                         <tr><td>총 상품 금액</td><td>{Array.isArray(finalPrice) ? <NumFormat num={sumPrice} />: <NumFormat num={finalPrice} />} 원</td></tr>
                         <tr><td>배송비</td><td>3000 원</td></tr>
-                        <hr/>
+                        
                         <tr><td>총 결제 금액</td><td>{Array.isArray(finalPrice) ? (sumPrice+3000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : (finalPrice+3000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 원</td></tr>
                     </tbody>
                 </table>

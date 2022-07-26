@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 import axios from "axios";
 import CheckID from "./CheckID";
 import "./App.css";
@@ -38,18 +40,16 @@ function Join() {
     };
 
     return(
-        <form onSubmit={joinCus}>
-            <hr/>
-            <p>* ID</p>
-            <input type="text" name="cusID" placeholder="아이디 입력란" onChange={onChange} value={cusID} required autoFocus/><CheckID id={cusID} />
-            <p>* PW</p>
-            <input type="password" name="cusPassword" placeholder="비밀번호 입력란" onChange={onChange} value={cusPassword} pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{5,10}$" 
-                   title="최소 5자리에서 최대 10자리 까지, 숫자, 영문, 특수문자 1개 이상 포함" required/> <span className="pattern">(최소 5자리에서 최대 10자리, 숫자, 영문, 특수문자 1개 이상 포함)</span>
-            <p>* Name</p>
-            <input type="text" name="cusName" placeholder="이름 입력란" onChange={onChange} value={cusName} required/>
-            <p>* Email</p>
-            <input type="email" name="cusEmail" placeholder="a@a.com" onChange={onChange} value={cusEmail} required/>
-            <button>회원가입</button>
+        <form className="joinForm" onSubmit={joinCus}>
+            <div className="idcheckbox">
+                <TextField className="idcheck"id="standard-basic" name="cusID" label="ID" variant="standard" onChange={onChange} value={cusID} autoFocus required inputProps={{minLength : 1}}/><CheckID id={cusID} />
+            </div>
+            <TextField id="standard-basic" type="password" name="cusPassword" label="Password" variant="standard" onChange={onChange} value={cusPassword} required placeholder="최대 10자리" inputProps={{maxLength : 10}} />
+            <TextField id="standard-basic" name="cusName" label="Name" variant="standard" onChange={onChange} value={cusName} required/>
+            <TextField id="standard-basic" type="email" name="cusEmail" label="email" variant="standard" onChange={onChange} value={cusEmail} placeholder="a@a.com" required/>
+            <Button type="submit" variant="contained" size="large">
+                회원가입
+            </Button>
         </form>
     )
 }

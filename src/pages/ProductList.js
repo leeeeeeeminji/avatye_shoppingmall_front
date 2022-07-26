@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import NumFormat from "./NumFormat";
+import { Container } from "@mui/system";
 import Grid from '@mui/material/Grid';
 import "./App.css";
 
@@ -16,21 +17,22 @@ function ProductList(){
     }, [])
 
     return(
-        <div>
-            <hr/>
-            <nav>
-                {searchList.map((val) => {
-                    return(
+        <Container fixed>
+            <div className="listdiv">
+            {searchList.map((val) => {
+                return(
+                    <div className="item">
                         <Link key={val.productID} className="linklist" to={`/ProductDetail/${val.productID}`}>
-                            <h2 className="prList" key={val.productID}>
-                                <img src={val.productIMG} width="200px" alt="이미지"/>
-                                {val.productName} <span style={{fontSize : "15px"}}><NumFormat num={val.productPrice} />원</span>
-                            </h2>
+                            <div key={val.productID}>
+                                <img src={val.productIMG} width="200px" height="200px" alt="이미지"/><br/>
+                                <span>{val.productName} <NumFormat num={val.productPrice} />원</span>
+                            </div>
                         </Link>
-                    );
-                })}
-            </nav>
-        </div>
+                    </div>
+                );
+            })}
+            </div>
+        </Container>
     )
 }
 

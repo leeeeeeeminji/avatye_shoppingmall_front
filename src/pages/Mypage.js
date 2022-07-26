@@ -2,10 +2,15 @@ import React,{useState, useEffect} from "react";
 import "./App.css";
 import axios from "axios";
 import NumFormat from "./NumFormat";
+import ReactModal from "react-modal";
+import OrderModal from "./OrderModal";
+import TextField from '@mui/material/TextField';
+import "./Modal.css";
 
 function Mypage() {
     const currentUser = JSON.parse(localStorage.getItem("user")).userid
     const [userImage, setUserImage] = useState("/imgs/user.jpeg");
+    const [modalOpen, setModalOpen] = useState(false);
     const [userOrder, setUserOrder] = useState(null);
     const [userinfo, setUserInfo] = useState(null);
     const [updateInputs, setUpdateInputs] = useState({
@@ -50,13 +55,16 @@ function Mypage() {
         window.location.reload();
     }
 
-    const detailList = (data) => {
-        alert(`${data}에 해당하는 디테일 값을 보여줍니다.`);
+    const openModal = () => {
+        setModalOpen(true);
+    }
+
+    const closeModal = () => {
+        setModalOpen(false);
     }
 
     return (
-        <div>
-            <hr/>
+        <div className="modal_background">
             <div className="mypagediv">
                 <img src={userImage} alt="이미지"/>
                 <div>
@@ -64,8 +72,8 @@ function Mypage() {
                     <caption>내 정보</caption>
                     <tbody>
                         <tr><td>ID</td><td>{currentUser}</td></tr>
-                        <tr><td>이름</td><td><input type="text" name="cusName" value={cusName} onChange={onChange}/> <input type="button" name="updatename" onClick={updateName} value="수정"/></td></tr>
-                        <tr><td>E-mail</td><td><input type="email" name="cusEmail" value={cusEmail} onChange={onChange}/> <input  type="button" name="updateEmail" onClick={updateEmail} value="수정"/></td></tr>
+                        <tr><td>이름</td><td><input className="mypageInputs" type="text" name="cusName" value={cusName} onChange={onChange}/> <input className="mypageInputButton" type="button" name="updatename" onClick={updateName} value="수정"/></td></tr>
+                        <tr><td>E-mail</td><td><input className="mypageInputs" type="email" name="cusEmail" value={cusEmail} onChange={onChange}/> <input  className="mypageInputButton" type="button" name="updateEmail" onClick={updateEmail} value="수정"/></td></tr>
                     </tbody>
                 </table>
                 
@@ -78,20 +86,30 @@ function Mypage() {
                         <tbody>
                             {userOrder && userOrder.map((val) => {
                                 return(
-                                    <tr onClick={detailList(val.orderID)}>
-                                        <td>{val.orderID}</td>
-                                        <td>{val.orderDate}</td>
-                                        <td>{val.address}</td>
-                                        <td>{val.phonenumber}</td>
-                                        <td><NumFormat num={val.finalPrice} />원</td>
-                                    </tr>
+                                    <>
+                                        <tr onClick={openModal}>
+                                            <td>{val.orderID}</td>
+                                            <td>{val.orderDate}</td>
+                                            <td>{val.address}</td>
+                                            <td>{val.phonenumber}</td>
+                                            <td><NumFormat num={val.finalPrice} />원</td>
+                                        </tr>
+                                    </>
                                 );
-                            })}     
+                            })}
                         </tbody>
                     </table>
                 </div>
+            </div>
 
-                </div>    
+            <div>
+                <ReactModal className="modal" isOpen={modalOpen} onRequstClose={closeModal} ariaHideApp={false}>
+                    <OrderModal/>
+                    <footer className="modal_footer">
+                      <button onClick={closeModal}>닫기</button>   
+                    </footer>
+                </ReactModal>
+            </div>
             </div>
         </div>
     )

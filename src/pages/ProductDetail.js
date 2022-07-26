@@ -86,9 +86,8 @@ function ProductDetail() {
 
     return(
         <div>
-            <hr/>
             {details && 
-                <div>
+                <div className="detaildiv">
                     <img className="productIMG" src={details[0].productIMG} alt="이미지" />
                     <div className="product">
                         <h2>{details[0].productName}</h2>

@@ -19,7 +19,6 @@ function Cart() {
 
     return (
         <>
-            <hr/>
             <div className="info">{currentUser}님의 장바구니 입니다.</div>
             <table className="ordertable">
                 <thead>

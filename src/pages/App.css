@@ -1,3 +1,7 @@
+* {
+    text-decoration: none;
+}
+
 /*Main*/
 html {
     position : relative;
@@ -10,8 +14,6 @@ footer {
     text-align : center;
     padding : 30px;
     background-color : #e9f7e4;
-    position : absolute;
-    bottom : 0px;
 } 
 
 .slider {
@@ -44,13 +46,30 @@ footer {
     opacity: 0.7;
 }
 
-.prList {
-    display: inline-block;
+.item {
+    border : 2px solid #c1dbb8;
+    box-shadow: 1px 1px 3px;
+    border-radius: 20px;
+    text-align: center;
+    margin : 30px;
+    width : 300px;
+    height : 250px;
+    padding-top : 10px;
+}
+
+.item span {
+    font-size : 18px;
+}
+
+.listdiv {
+    margin-top : 50px;
+    display: flex;
+    flex-wrap: wrap
 }
 
 /*productDetail*/
 .productIMG {
-    width : 500px;
+    width : 450px;
     height : 100%;
     display : inline-block;
 }
@@ -65,12 +84,20 @@ footer {
     font-size : 30px;
 }
 
+.detaildiv {
+    width : 800px;
+    margin : 50px auto;
+}
+
 .buybtn,
 .cartbtn {
     width : 100px;
     height : 50px;
-    border-radius: 30px;
-    margin : 20px;
+    border-radius: 10px;
+    border : none;
+    box-shadow: 1px 1px 3px;
+    margin: 20px;
+    font-size : 16px;
 }
 
 
@@ -101,14 +128,43 @@ caption {
 }
 
 /*Join*/
-.pattern {
-    font-size : 8px;
+
+.joinForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin : 80px auto;
+    padding : 20px;
+    border : 2px solid #c1dbb8;
+    border-radius : 20px;
+    width : 300px;
+    height : auto;
 }
+
+.idcheckbox {
+    position: relative;
+}
+
+.idcheckbutton {
+    position: absolute;
+    bottom: 40px;
+    right: 0px;
+    width : 30px;
+    background-color: inherit;
+    border : none;
+    font-size : 25px;
+}
+
 
 /*SearchProduct*/
 .searchItem {
     border : none;
     width : 150px;
+}
+
+.resultlist {
+    position : relative;
 }
 
 /*SearchResult*/
@@ -128,6 +184,8 @@ caption {
     width : 1000px;
     height: 50px;
     font-size: larger;
+    border : none;
+    box-shadow: 1px 1px 3px;
 }
 
 .tablediv {
@@ -191,4 +249,61 @@ caption {
 
 .mypagetable caption {
     font-size: 17px;
+}
+
+.mypageInputs {
+    border-top : none;
+    border-left : none;
+    border-right : none;
+    border-bottom : 1px solid black;
+}
+
+.mypageInputButton {
+    border : none;
+    background-color: rgb(220, 220, 220);
+    font-size : 11px;
+    padding : 5px;
+}
+
+/*login*/
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin : 80px auto;
+    padding : 20px;
+    border : 2px solid #c1dbb8;
+    border-radius : 20px;
+    width : 300px;
+    height : 350px;
+}
+
+.MuiButton-containedSizeLarge {
+    width : 180px;
+}
+
+.MuiButton-root {
+    background-color: #c1dbb8;
+}
+
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+    margin-bottom : 40px !important; 
+}
+
+.css-jh47zj-MuiButtonBase-root-MuiButton-root {
+    background-color : #b7dbab !important;
+    color : black !important;
+}
+ 
+.MuiInputLabel-root.Mui-focused {
+    color: #b7dbab !important;
+}
+
+.css-1ptx2yq-MuiInputBase-root-MuiInput-root:after{
+    border-bottom : 2px solid #a4a4a4 !important;
+}
+
+.input:-internal-autofill-selected {
+    background-color : white;
 }
