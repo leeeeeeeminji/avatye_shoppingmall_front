@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import NumFormat from "./NumFormat";
-import "./App.css";
+import { Container } from "@mui/system";
+import "./css/App.css";
 
 function Cart() {
     const [cartlist, setCartList] = useState([]);
@@ -19,8 +20,9 @@ function Cart() {
 
     return (
         <>
+        <Container fixed>
             <div className="info">{currentUser}님의 장바구니 입니다.</div>
-            <table className="ordertable">
+            <table className="carttable">
                 <thead>
                     <tr>
                         <th>IMAGE</th><th>INFO</th><th>PRICE</th><th>QTY</th><th>SUM</th>
@@ -41,9 +43,10 @@ function Cart() {
                     })}
             </table>
 
-            <div className="mypagediv">
+            <div className="cartbtndiv">
                 <button className="buybtn2" onClick={()=> {navigate("/Order", {state : {details : cartlist}})}}>주문</button>
             </div>
+        </Container>
         </>
     )
 }

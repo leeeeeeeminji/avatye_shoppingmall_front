@@ -25,7 +25,7 @@ function Main() {
         {imgs.map((val) => {
             return(
                 <div key={val}>
-                    <img src={val} width="300px"/>
+                    <img src={val} width="300px" alt="대표 상품 이미지"/>
                 </div>
             )
         })}

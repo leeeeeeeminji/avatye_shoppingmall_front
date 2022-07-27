@@ -1,6 +1,10 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router";
-import "./App.css";
+import Paper from '@mui/material/Paper';
+import InputBase from '@mui/material/InputBase';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search';
+import "./css/App.css";
 
 function SearchProduct(){
     const [searchItem, setSearchItem] = useState();
@@ -11,9 +15,9 @@ function SearchProduct(){
 
     const navigate = useNavigate();
 
-    const seachItem = (e) => {
+    const itemSearch = (e) => {
         e.preventDefault();
-        if(searchItem !== undefined){
+        if((searchItem !== undefined) && (searchItem !== "")){
             navigate(`/SearchResult/${searchItem}`);
         } else {
             alert("상품명을 입력해주세요");
@@ -21,10 +25,14 @@ function SearchProduct(){
     };
 
     return(
-        <form onSubmit={seachItem}>
-            <input className="searchItem" type="text" minLength="1" value={searchItem} placeholder="상품명을 입력하세요 " onChange={onChange}/>
-            <button style={{backgroundColor : 'white', borderStyle : 'none'}}>🔍</button>
-        </form>
+        <Paper component="form" onSubmit={itemSearch} sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}>
+
+            <InputBase type="text" value={searchItem} onChange={onChange} sx={{ ml: 1, flex: 1 }} placeholder="상품명을 입력하세요" />
+
+            <IconButton onClick={itemSearch} sx={{ p: '8px' }} aria-label="search">
+                <SearchIcon />
+            </IconButton>
+        </Paper>
     )
 }
 

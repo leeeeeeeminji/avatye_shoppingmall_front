@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import "./App.css";
+import "./css/App.css";
 
 function CheckID({id}) {
     const checkid = id;

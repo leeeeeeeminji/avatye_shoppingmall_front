@@ -1,0 +1,63 @@
+.head {
+    text-decoration: none;
+    width: 100%;
+    font-size: 50px;
+    padding :40px 0;
+    margin : 0px;
+    text-align : center;
+    background-color : #e9f7e4;
+}
+.head a{
+    position : relative;
+    bottom : 20px;
+    color : black;
+}
+
+.head a:hover {
+    opacity : 0.6;
+}
+
+.menu{
+    display: flex;
+    align-items: flex-end;
+    align-content: center;
+    justify-content: center;
+    position : relative;
+    bottom : 45px;
+}
+
+.menu2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+    width: 10px;
+    top: -90px;
+    left: 250px;
+    z-index: 99;
+}
+
+.menu2 button svg{
+    font-size: 50px;
+}
+
+.menu3  {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+    width: 100px;
+    float: right;
+    top: -185px;
+    right: 250px;
+    z-index: 99;
+}
+
+.menu3 a {
+    color : black;
+    padding : 5px;
+}
+
+.menu3 a:hover {
+    color : #797979d0;
+}

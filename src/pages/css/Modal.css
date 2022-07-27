@@ -45,7 +45,6 @@
 
 .modal_footer {
     background-color: rgba(172, 172, 172, 0.128);
-    display: fixed;
     width: -webkit-fill-available;
     padding : 22px;
 }

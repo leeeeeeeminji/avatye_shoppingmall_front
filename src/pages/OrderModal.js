@@ -1,5 +1,5 @@
-import React, { useState} from "react";
-import "./Modal.css";
+import React from "react";
+import "./css/Modal.css";
 
 function OrderModal({data}) {
     return(
@@ -13,6 +13,7 @@ function OrderModal({data}) {
                     </thead>
                     <tbody>
                         <tr><td>이미지</td><td>주문상품</td><td>주문수량</td></tr>
+                        <tr><td>{data}</td><td>{data}</td><td>{data}</td></tr>
                     </tbody>
                 </table>
             </div>

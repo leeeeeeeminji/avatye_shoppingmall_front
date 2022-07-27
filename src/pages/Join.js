@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import axios from "axios";
 import CheckID from "./CheckID";
-import "./App.css";
+import "./css/App.css";
 
 function Join() {
     const [inputs, setInputs] = useState({

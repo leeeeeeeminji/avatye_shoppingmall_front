@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import NumFormat from "./NumFormat";
+import { Container } from "@mui/system";
 import axios from "axios";
-import './App.css';
+import './css/App.css';
 
 function Order() {
     const currentUser = JSON.parse(localStorage.getItem("user")).userid
@@ -54,6 +55,7 @@ function Order() {
 
     return(
         <>
+        <Container fixed>
             <table className="ordertable">
                 <caption>상품 정보</caption>
                 <thead>
@@ -92,15 +94,16 @@ function Order() {
                     <tbody>
                         <tr><td>총 상품 금액</td><td>{Array.isArray(finalPrice) ? <NumFormat num={sumPrice} />: <NumFormat num={finalPrice} />} 원</td></tr>
                         <tr><td>배송비</td><td>3000 원</td></tr>
-                        
+                        <tr><td colSpan={2}><hr/></td><td></td></tr>
                         <tr><td>총 결제 금액</td><td>{Array.isArray(finalPrice) ? (sumPrice+3000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : (finalPrice+3000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 원</td></tr>
                     </tbody>
                 </table>
             </div>
             
-            <div className="mypagediv">
+            <div className="paymentbtndiv">
                 <button className="paymentbtn" onClick={payment}>결제하기</button>
             </div>
+        </Container>
         </>
     );
 }

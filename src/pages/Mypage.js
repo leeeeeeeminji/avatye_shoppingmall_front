@@ -1,11 +1,10 @@
-import React,{useState, useEffect} from "react";
-import "./App.css";
+import React,{useState, useEffect, useRef} from "react";
+import "./css/App.css";
 import axios from "axios";
 import NumFormat from "./NumFormat";
 import ReactModal from "react-modal";
 import OrderModal from "./OrderModal";
-import TextField from '@mui/material/TextField';
-import "./Modal.css";
+import "./css/Modal.css";
 
 function Mypage() {
     const currentUser = JSON.parse(localStorage.getItem("user")).userid
@@ -13,6 +12,7 @@ function Mypage() {
     const [modalOpen, setModalOpen] = useState(false);
     const [userOrder, setUserOrder] = useState(null);
     const [userinfo, setUserInfo] = useState(null);
+    const [orderNumber, setOrderNumber] = useState(0);
     const [updateInputs, setUpdateInputs] = useState({
         cusName : '',
         cusEmail : ''
@@ -33,7 +33,7 @@ function Mypage() {
         .then((response) => {
             setUserOrder(response.data)
         })
-    }, []);
+    }, [currentUser]);
 
     const onChange = e => {
         const {name, value} = e.target
@@ -55,7 +55,8 @@ function Mypage() {
         window.location.reload();
     }
 
-    const openModal = () => {
+    const openModal = (data) => {
+        setOrderNumber(data);
         setModalOpen(true);
     }
 
@@ -87,7 +88,7 @@ function Mypage() {
                             {userOrder && userOrder.map((val) => {
                                 return(
                                     <>
-                                        <tr onClick={openModal}>
+                                        <tr onClick={() => openModal(val.orderID)}>
                                             <td>{val.orderID}</td>
                                             <td>{val.orderDate}</td>
                                             <td>{val.address}</td>
@@ -104,7 +105,7 @@ function Mypage() {
 
             <div>
                 <ReactModal className="modal" isOpen={modalOpen} onRequstClose={closeModal} ariaHideApp={false}>
-                    <OrderModal/>
+                    <OrderModal data={orderNumber}/>
                     <footer className="modal_footer">
                       <button onClick={closeModal}>닫기</button>   
                     </footer>

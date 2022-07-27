@@ -18,18 +18,21 @@ footer {
 
 .slider {
     width : 50%;
-    margin : 50px auto;
+    margin : -30px auto;
 }
 
 .slider img {
-    margin : 50px auto;
+    margin : 0 auto;
 }
 
 .maintext {
-    margin : 50px;
     font-size : 25px;
     color : gray;
-    text-align : center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom : 80px;
+    left : 50px;
 }
 
 .slick-prev:before,
@@ -61,10 +64,8 @@ footer {
     font-size : 18px;
 }
 
-.listdiv {
-    margin-top : 50px;
-    display: flex;
-    flex-wrap: wrap
+.listdiv2 {
+    width : 100%;
 }
 
 /*productDetail*/
@@ -86,7 +87,7 @@ footer {
 
 .detaildiv {
     width : 800px;
-    margin : 50px auto;
+    margin : -50px auto;
 }
 
 .buybtn,
@@ -105,7 +106,7 @@ footer {
 .ordertable {
     width : 1000px;
     text-align : center;
-    margin : 50px auto;
+    margin : -30px auto;
     border-collapse: collapse;
     border: 3px solid rgb(239, 239, 239);
 }
@@ -115,7 +116,6 @@ footer {
 }
 
 .orderdetail {
-
     padding : 20px;
     width : 500px;
     border : 3px solid rgb(239, 239, 239);
@@ -127,6 +127,17 @@ caption {
     margin-bottom : 10px;
 }
 
+.tablediv {
+    display: flex;
+    justify-content: center;
+    margin : 50px 0;
+}
+
+.paymentbtndiv {
+    display: flex;
+    justify-content: center;
+}
+
 /*Join*/
 
 .joinForm {
@@ -134,12 +145,14 @@ caption {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin : 80px auto;
+    margin : 0 auto;
     padding : 20px;
     border : 2px solid #c1dbb8;
     border-radius : 20px;
     width : 300px;
     height : auto;
+    position : relative;
+    left : 50px;
 }
 
 .idcheckbox {
@@ -158,24 +171,41 @@ caption {
 
 
 /*SearchProduct*/
-.searchItem {
-    border : none;
-    width : 150px;
-}
-
 .resultlist {
     position : relative;
+    top : 20px;
 }
 
 /*SearchResult*/
 .searchresult {
     text-align: center;
+    margin-top: -50px;
 }
 
 .info {
     text-align : center;
     font-size : 20px;
-    margin : 50px;
+    margin-top : -40px;
+}
+
+.listdiv {
+    position: relative;
+    left : 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top : -50px;
+}
+
+.item2 {
+    display: inline-block;
+    border : 2px solid #c1dbb8;
+    box-shadow: 1px 1px 3px;
+    border-radius: 20px;
+    text-align: center;
+    width : 300px;
+    height : 250px;
+    padding-top:10px;
+    margin : 30px;
 }
 
 /*cart*/
@@ -188,17 +218,25 @@ caption {
     box-shadow: 1px 1px 3px;
 }
 
-.tablediv {
-    display: flex;
-    justify-content: center;
-    margin-bottom : 50px;
+.carttable {
+    width : 1000px;
+    text-align : center;
+    margin : 50px auto;
+    border-collapse: collapse;
+    border: 3px solid rgb(239, 239, 239);
 }
+
+.carttable tr th {
+    background-color : rgb(239, 239, 239);
+}
+
 
 /*mypage*/
 .mypagediv {
     display: flex;
     justify-content: center;
-    margin : 50px;
+    padding-left : 190px;
+    margin-top : -20px;
 }
 
 .mypagediv img {
@@ -271,12 +309,14 @@ caption {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin : 80px auto;
+    margin : 0 auto;
     padding : 20px;
     border : 2px solid #c1dbb8;
     border-radius : 20px;
     width : 300px;
     height : 350px;
+    position : relative;
+    left : 50px;
 }
 
 .MuiButton-containedSizeLarge {
@@ -306,4 +346,10 @@ caption {
 
 .input:-internal-autofill-selected {
     background-color : white;
+}
+
+/*cart*/
+.cartbtndiv {
+    display: flex;
+    justify-content: center;
 }

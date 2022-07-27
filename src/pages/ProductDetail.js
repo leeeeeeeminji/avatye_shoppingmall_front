@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import NumFormat from "./NumFormat";
-import './App.css';
+import './css/App.css';
 
 function ProductDetail() {
     const [details, setDetails] = useState(null);

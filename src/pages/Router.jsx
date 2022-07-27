@@ -1,6 +1,8 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import { Navigate, useNavigate } from "react-router";
+import { Navigate } from "react-router";
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 import Main from './Main';
 import ProductList from './ProductList';
 import Login from './Login';
@@ -11,7 +13,7 @@ import SearchProduct from './SearchProduct';
 import ProductDetail from './ProductDetail';
 import Order from './Order';
 import SearchResult from './SearchResult';
-import "./Router.css"
+import "./css/Router.css"
 import Mypage from './Mypage';
 
 //메뉴
@@ -19,14 +21,23 @@ function Router() {
     return (
         <div>
             <div className='head'>
-                <Link style={{textDecoration : 'none'}} to="/Main"><b>SHOP</b></Link>
+                <Link to="/Main"><b>SHOP</b></Link>
             </div>
             <div className='menu'>
-                <Link to="/ProductList">상품 목록</Link>
+                <SearchProduct />
+            </div>
+            {/* 상품목록 */}
+            <div className="menu2">
+                <Link to="/ProductList">
+                    <IconButton sx={{ p: '3px' }} aria-label="menu">
+                        <MenuIcon />
+                    </IconButton>
+                </Link>
+            </div>
+            <div className='menu3'>
                 {localStorage.getItem("user") ? <Link to="/Logout">로그아웃</Link> : <Link to="/Login">로그인</Link>}
                 {localStorage.getItem("user") ? <Link to="/Mypage">마이페이지</Link> : <Link to="/Join">회원가입</Link>}
                 <Link to="/Cart">장바구니</Link>
-                <SearchProduct />
             </div>
 
             <Routes>
