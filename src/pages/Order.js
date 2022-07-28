@@ -95,7 +95,7 @@ function Order() {
                         <tr><td>총 상품 금액</td><td>{Array.isArray(finalPrice) ? <NumFormat num={sumPrice} />: <NumFormat num={finalPrice} />} 원</td></tr>
                         <tr><td>배송비</td><td>3000 원</td></tr>
                         <tr><td colSpan={2}><hr/></td><td></td></tr>
-                        <tr><td>총 결제 금액</td><td>{Array.isArray(finalPrice) ? (sumPrice+3000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : (finalPrice+3000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 원</td></tr>
+                        <tr><td>총 결제 금액</td><td>{Array.isArray(finalPrice) ? <NumFormat num={sumPrice+3000} /> : <NumFormat num={finalPrice+3000} />} 원</td></tr>
                     </tbody>
                 </table>
             </div>

@@ -3,6 +3,12 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import NumFormat from "./NumFormat";
+// import Paper from '@mui/material/Paper';
+// import InputBase from '@mui/material/InputBase';
+// import IconButton from '@mui/material/IconButton';
+// import AddIcon from '@mui/icons-material/Add';
+// import RemoveIcon from '@mui/icons-material/Remove';
+// import Divider from '@mui/material/Divider';
 import './css/App.css';
 
 function ProductDetail() {
@@ -92,13 +98,33 @@ function ProductDetail() {
                     <div className="product">
                         <h2>{details[0].productName}</h2>
                         <NumFormat num={details[0].productPrice} />원
+                        {/* <hr style={{border : "solid 1px #919191"}}/> */}
                         <div className="productContent">" {details[0].productContent} "</div> 
-                        <div>수량 : {quantity} <button value="+" onClick={checkQuantity}>+</button><button value="-" onClick={checkQuantity}>-</button></div>
-                        <br/>
-                        <div>최종 금액 : <NumFormat num={finalPrice} />원</div>
-                    </div>
+                        <div className="selectOption">
+                            {/* <Paper sx={{display: 'flex', alignItems: 'center', width: '120px' }}>
+
+                                <IconButton onClick={checkQuantity} value="+" sx={{ p: '5px' }}>
+                                    <AddIcon />
+                                </IconButton>
+
+                                <Divider sx={{ height: 28}} orientation="vertical" />
+
+                                <InputBase type="text" value={quantity} sx={{ ml: 1, flex: 1 }} />
+
+                                <Divider sx={{ height: 28}} orientation="vertical" />
+
+                                <IconButton onClick={checkQuantity} value="-" sx={{ p: '5px' }}>
+                                    <RemoveIcon />
+                                </IconButton>
+
+                            </Paper> */}
+
+                            수량 : <button className="qtybutton" value="-" onClick={checkQuantity}>-</button><input type="text" className="qty" value={quantity}></input><button className="qtybutton" value="+" onClick={checkQuantity}>+</button><br/>
+                            최종 금액 : <NumFormat num={finalPrice} />원
+                        </div>
                     <button className="buybtn" onClick={goOrder}>주문</button>
                     <button className="cartbtn" onClick={insertCart}>🛒</button>
+                    </div>
                 </div>
             }
         </div>

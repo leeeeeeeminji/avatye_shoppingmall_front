@@ -7,6 +7,7 @@ import "./css/App.css";
 
 function Cart() {
     const [cartlist, setCartList] = useState([]);
+    const [isChecked, setisChecked] =useState(false);
     const navigate = useNavigate();
 
     const currentUser = JSON.parse(localStorage.getItem("user")).userid
@@ -25,13 +26,14 @@ function Cart() {
             <table className="carttable">
                 <thead>
                     <tr>
-                        <th>IMAGE</th><th>INFO</th><th>PRICE</th><th>QTY</th><th>SUM</th>
+                        <th><input type="checkbox"/></th><th>IMAGE</th><th>INFO</th><th>PRICE</th><th>QTY</th><th>SUM</th>
                     </tr>
                 </thead>
                     {cartlist.map((val) => {
                         return(
                             <tbody key={val.productID}>
-                                <tr> 
+                                <tr>
+                                    <td><input type="checkbox" /></td>
                                     <td><img width="100px" src={val.productIMG} alt="이미지" /></td>
                                     <td>{val.productName}</td>
                                     <td><NumFormat num={val.productPrice} />원</td>

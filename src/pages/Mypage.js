@@ -46,13 +46,11 @@ function Mypage() {
     const updateName = () => {
         axios.put("http://localhost:3001/api/updateInfo", {cusID : currentUser, cusName : cusName})
         alert("이름이 수정되었습니다.")
-        window.location.reload();
     }
 
     const updateEmail = () => {
         axios.put("http://localhost:3001/api/updateInfo", {cusID : currentUser, cusEmail : cusEmail})
         alert("이메일이 수정되었습니다.")
-        window.location.reload();
     }
 
     const openModal = (data) => {
@@ -64,10 +62,16 @@ function Mypage() {
         setModalOpen(false);
     }
 
+    const loadImage = (e) => {
+        let file = e.target.value
+        console.log(file)
+    }
+
     return (
         <div className="modal_background">
             <div className="mypagediv">
-                <img src={userImage} alt="이미지"/>
+                <img src={userImage} alt="이미지"/> <br/>
+                <input type="file" onChange={loadImage}/>
                 <div>
                 <table className="mypagetable">
                     <caption>내 정보</caption>
@@ -83,7 +87,7 @@ function Mypage() {
                         <caption>주문 정보</caption>
                         <thead>
                             <tr><th>주문 번호</th><th>주문 날짜</th><th>주소</th><th>전화번호</th><th>최종 결제 금액</th></tr>
-                        </thead>
+                        </thead> 
                         <tbody>
                             {userOrder && userOrder.map((val) => {
                                 return(

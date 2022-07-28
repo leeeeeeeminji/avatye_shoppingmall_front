@@ -11,6 +11,7 @@
     background-color: white;
     border-radius: 20px;
     animation: 0.3s;
+    overflow :scroll;
 }
 
 .ReactModal__Overlay--after-open {
