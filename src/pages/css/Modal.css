@@ -50,7 +50,34 @@
     padding : 22px;
 }
 
-.modal_footer button {
+.modal_footer button,
+.order_modal_footer button {
     width : 100px;
     height: 30px;
+    margin : 0 20px;
+}
+
+.ordermodal {
+    margin : 0 auto;
+    top: 100px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    width : 500px;
+    height : 200px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.success_order { 
+    margin : 50px;
+    text-align: center;
+    font-size: larger;
+}
+
+.order_modal_footer {
+    background-color: rgba(172, 172, 172, 0.128);
+    width: -webkit-fill-available;
+    padding : 30px;
 }

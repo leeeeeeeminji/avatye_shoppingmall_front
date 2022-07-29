@@ -25,9 +25,9 @@ function Login() {
             {cusID : cusID,
              cusPW : cusPW, })
         .then(response => {
-            if (response.data == 'wrongPW') {
+            if (response.data === 'wrongPW') {
                 alert("비밀번호가 올바르지 않습니다.");
-            } else if (response.data == 'noID') {
+            } else if (response.data === 'noID') {
                 alert("아이디가 존재하지 않습니다.");
             } else {
                 localStorage.setItem("user", JSON.stringify(response.data));

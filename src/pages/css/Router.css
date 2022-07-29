@@ -1,23 +1,4 @@
-.head {
-    text-decoration: none;
-    width: 100%;
-    font-size: 50px;
-    padding :40px 0;
-    margin : 0px;
-    text-align : center;
-    background-color : #e9f7e4;
-}
-.head a{
-    position : relative;
-    bottom : 20px;
-    color : black;
-}
-
-.head a:hover {
-    opacity : 0.6;
-}
-
-.menu{
+.searchProduct{
     display: flex;
     align-items: flex-end;
     align-content: center;

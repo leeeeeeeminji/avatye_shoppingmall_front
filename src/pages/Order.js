@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router";
+import ReactModal from "react-modal";
 import NumFormat from "./NumFormat";
 import { Container } from "@mui/system";
 import axios from "axios";
@@ -7,6 +9,8 @@ import './css/App.css';
 
 function Order() {
     const currentUser = JSON.parse(localStorage.getItem("user")).userid
+    const [modalOpen, setModalOpen] = useState(false);
+    const navigate = useNavigate();
     const [inputs, setInputs] = useState({
         phone : '',
         address : ''
@@ -46,11 +50,23 @@ function Order() {
         }
         axios.post("http://localhost:3001/api/orders", data)
         .then(
-            alert("주문되었습니다.")
+            openModal()
         ).catch(error => {
             console.log(error)
         })
-        
+    }
+
+    const openModal = () => {
+        setModalOpen(true);
+    }
+
+    const closeModal = () => {
+        setModalOpen(false);
+    }
+
+    const moveMypage = () => {
+        setModalOpen(false);
+        navigate("/Mypage");
     }
 
     return(
@@ -104,6 +120,18 @@ function Order() {
                 <button className="paymentbtn" onClick={payment}>결제하기</button>
             </div>
         </Container>
+
+        <div>
+            <ReactModal className="ordermodal" isOpen={modalOpen} onRequstClose={closeModal} ariaHideApp={false}>
+                <div className="success_order">
+                    주문이 성공적으로 완료되었습니다.
+                </div>
+                <footer className="order_modal_footer">
+                    <button onClick={moveMypage}>Mypage 이동</button><button onClick={closeModal}>닫기</button>   
+                </footer>
+            </ReactModal>
+        </div>
+
         </>
     );
 }

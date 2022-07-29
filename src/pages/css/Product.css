@@ -1,0 +1,91 @@
+/*productList*/
+.linklist {
+    color : #181818d6;
+}
+.linklist:hover {
+    opacity: 0.7;
+}
+
+.item {
+    border : 2px solid #c1dbb8;
+    box-shadow: 1px 1px 3px;
+    border-radius: 20px;
+    text-align: center;
+    margin : 30px;
+    width : 300px;
+    height : 250px;
+    padding-top : 10px;
+}
+
+.item span {
+    font-size : 18px;
+}
+
+.listdiv2 {
+    width : 100%;
+}
+
+/*productDetail*/
+.productIMG {
+    width : 450px;
+    height : 100%;
+    display : inline-block;
+    margin-left : -30px;
+    padding-right : 50px;
+}
+
+.product {
+    position : absolute;
+    display : inline-block;
+}
+
+.productContent {
+    margin : 50px 0;
+    font-size : 30px;
+}
+
+.detaildiv {
+    width : 800px;
+    margin : 0px auto;
+}
+
+.buybtn,
+.cartbtn {
+    width : 100px;
+    height : 50px;
+    border-radius: 10px;
+    border : none;
+    box-shadow: 1px 1px 3px;
+    font-size : 16px;
+    margin : 30px;
+    margin-left : 40px;
+}
+
+.selectOption {
+    background-color : rgba(228, 228, 228, 0.421);
+    width : 330px;
+    height: 130px;
+    border : 1px solid rgba(125, 125, 125, 0.305);
+    padding-left : 20px;
+    line-height: 4;
+}
+
+.qtybutton {
+    background-color: white;
+    border : none;
+    height: auto;
+}
+
+.detailspan {
+    display : inline-flex;
+    height: 20px;
+}
+
+.qty {
+    text-align: center;
+    width : 30px;
+    height: auto;
+    border : none;
+    border-left : 1px solid rgba(128, 128, 128, 0.409);
+    border-right : 1px solid rgba(128, 128, 128, 0.409);
+}

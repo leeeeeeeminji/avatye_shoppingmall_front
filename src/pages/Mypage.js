@@ -1,14 +1,16 @@
-import React,{useState, useEffect, useRef} from "react";
+import React,{useState, useEffect} from "react";
 import "./css/App.css";
 import axios from "axios";
 import NumFormat from "./NumFormat";
 import ReactModal from "react-modal";
 import OrderModal from "./OrderModal";
 import "./css/Modal.css";
+import { Api } from "@mui/icons-material";
 
 function Mypage() {
     const currentUser = JSON.parse(localStorage.getItem("user")).userid
     const [userImage, setUserImage] = useState("/imgs/user.jpeg");
+    const [imagePreview, setImagePreview] = useState('');
     const [modalOpen, setModalOpen] = useState(false);
     const [userOrder, setUserOrder] = useState(null);
     const [userinfo, setUserInfo] = useState(null);
@@ -62,16 +64,48 @@ function Mypage() {
         setModalOpen(false);
     }
 
-    const loadImage = (e) => {
-        let file = e.target.value
-        console.log(file)
+    const encodeFileToBase64 = (fileBlob) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(fileBlob);
+        return new Promise((resolve) => {
+            reader.onload = () => {
+                setImagePreview(reader.result);
+                resolve();
+            }
+        })
+    }
+
+
+    const saveImage = (event) => {
+        encodeFileToBase64(event.target.files[0]);
+
+        const formdata = new FormData();
+        formdata.append('img', event.target.files[0]);
+
+        const config = {
+            Headers: {
+                'content-type' : 'multipart/form-data',
+            },
+        };
+
+        //서버 저장.
+        axios.post("http://localhost:3001/api/saveImage", formdata, config)
+        .then((res)=> {
+            console.log(res);
+        })
+
     }
 
     return (
         <div className="modal_background">
             <div className="mypagediv">
                 <img src={userImage} alt="이미지"/> <br/>
-                <input type="file" onChange={loadImage}/>
+                <input 
+                type="file" 
+                id="fileUpload"
+                accept="image/*" 
+                onChange={saveImage}
+                />
                 <div>
                 <table className="mypagetable">
                     <caption>내 정보</caption>

@@ -1,16 +1,25 @@
 import React from "react";
 import Router from "./Router";
-import "./css/App.css";
+import Sidemenu from "./Sidemenu";
+import { Link } from 'react-router-dom';
+import SearchProduct from "./SearchProduct";
+import "./css/Product.css";
 
 function App() {
   return (
       <div className="wrap">
         <header>
-          <Router/>
+          <div className='head'>
+            <Link to="/Main"><b>SHOP</b></Link>
+          </div>
+          <div className='searchProduct'>
+                <SearchProduct />
+          </div>
         </header>
-        {/* <footer>
-          made by LEE
-        </footer> */}
+
+        <div id="page-wrap">
+          <Sidemenu pageWrapID={'page-wrap'} outerContainerId={'wrap'}/>
+        </div>
       </div>
   );
 }

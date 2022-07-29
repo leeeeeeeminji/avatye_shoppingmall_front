@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 import NumFormat from "./NumFormat";
 import { Container } from "@mui/system";
+import "./css/Product.css";
 import "./css/App.css";
 
 function ProductList(){

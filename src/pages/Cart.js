@@ -34,7 +34,7 @@ function Cart() {
                             <tbody key={val.productID}>
                                 <tr>
                                     <td><input type="checkbox" /></td>
-                                    <td><img width="100px" src={val.productIMG} alt="이미지" /></td>
+                                    <td><img width="100px" src={val.productIMG} alt="이미지" onClick={()=>{navigate(`/ProductDetail/${val.productID}`)}}/></td>
                                     <td>{val.productName}</td>
                                     <td><NumFormat num={val.productPrice} />원</td>
                                     <td>{val.quantity} 개</td>

@@ -119,7 +119,7 @@ function ProductDetail() {
 
                             </Paper> */}
 
-                            수량 : <button className="qtybutton" value="-" onClick={checkQuantity}>-</button><input type="text" className="qty" value={quantity}></input><button className="qtybutton" value="+" onClick={checkQuantity}>+</button><br/>
+                            수량 : <span className="detailspan"><button className="qtybutton" value="-" onClick={checkQuantity}>-</button><input type="text" className="qty" value={quantity}></input><button className="qtybutton" value="+" onClick={checkQuantity}>+</button></span><br/>
                             최종 금액 : <NumFormat num={finalPrice} />원
                         </div>
                     <button className="buybtn" onClick={goOrder}>주문</button>
