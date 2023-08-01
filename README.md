@@ -1,4 +1,4 @@
-# 🛍 shoppingmall
+# 🛍 shoppingmall (Front)
 ![홈페이지 메인](https://github.com/leeeeeeeminji/avatye_shoppingmall_front/assets/87288893/9e430f0a-37e1-4ea3-a962-54add92b7754)
 <br>
 
